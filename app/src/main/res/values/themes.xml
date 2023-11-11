@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.DAM2_M07_PR11_Navegacion_pantallas_V2_listas_clases_asynimage" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
