@@ -9,7 +9,7 @@ sealed class Destinacion (
     val rutaBase : String,
     val argumentosDeNavegacion : List<ArgumentoDeNavegacio> = emptyList()
 ) {
-    val rutagenerica = run {
+    val rutaGenerica = run {
         val claves = argumentosDeNavegacion.map { "{${it.clave}}" }
         listOf(rutaBase)
             .plus(claves)
