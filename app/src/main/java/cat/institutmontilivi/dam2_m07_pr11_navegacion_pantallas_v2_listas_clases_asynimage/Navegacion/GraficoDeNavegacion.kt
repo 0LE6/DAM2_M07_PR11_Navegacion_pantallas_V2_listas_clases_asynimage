@@ -59,7 +59,22 @@ fun GraficoDeNavegacion() {
             )
         }
 
+        // NOTE : composable para la pantalla del "Guerrero seleccionado"
+        composable(
+            route = Destinacion.GuerreroSeleccionado.rutaGenerica,
+            arguments =  Destinacion.GuerreroSeleccionado.navArgs
+        ) {
+            // FIXME ==> ESTA ES LA MIERDA QUE HACIA QUE PETASE, tb en el programa de XS
+            val id = it.arguments?.getString(ArgumentoDeNavegacion.Id.clave)?.toInt()
+            Log.d("GuerreroSeleccionado", "Valor de id: $id")
+            requireNotNull(id)
 
+            PantallaGuerreroseleccionado(
+                idGuerreroSeleccionado = id,
+                onPopUpClick = {controladorDeNavegacion.navigate(
+                    Destinacion.Principal.rutaGenerica
+                )})
+        }
 
         // NOTE : composable para la pantalla de la "Lista de Coches"
         composable(
@@ -85,43 +100,11 @@ fun GraficoDeNavegacion() {
             PantallaListaDePaises(titulo)
         }
 
-        // NOTE : composable para la pantalla del "Guerrero seleccionado"
-        composable(
-            route = Destinacion.GuerreroSeleccionado.rutaGenerica,
-            arguments =  Destinacion.GuerreroSeleccionado.navArgs
-        ) {backStackEntry ->
-            val id = backStackEntry.arguments?.getInt(ArgumentoDeNavegacion.Id.clave)
-
-            requireNotNull(id)
-
-            PantallaGuerreroseleccionado(
-                idGuerreroSeleccionado = 4,
-                onPopUpClick = {
-                    controladorDeNavegacion.navigate(
-                        Destinacion.Principal.rutaGenerica)})
-        }
 
 
 
-        /*
-        PantallaGuerreroseleccionado
 
-        // NOTE: composable para la pantalla de "Guerrero seleccionado"
-        composable(
-            route = Destinacion.GuerreroSeleccionado.rutaGenerica,
-            arguments = Destinacion.GuerreroSeleccionado.navArgs
-        ) {
-            val idGuerreroSeleccionado =
-                it.arguments!!.getInt(ArgumentoDeNavegacion.Id.clave)
 
-            PantallaGuerreroseleccionado(
-                onPopUpClick = {
-                    // Lógica para manejar el clic en el botón de retroceso
-                    // Puedes usar controladorDeNavegacion.popBackStack() o cualquier otra lógica que necesites
-                },
-                idGuerreroSeleccionado = idGuerreroSeleccionado
-            )
-        }*/
 
     }
 }

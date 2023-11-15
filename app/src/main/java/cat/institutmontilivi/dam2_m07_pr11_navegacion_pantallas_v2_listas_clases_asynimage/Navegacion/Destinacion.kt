@@ -31,19 +31,19 @@ sealed class Destinacion (
         listOf(ArgumentoDeNavegacion.Titulo)) {
         fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
     }
-    object GuerreroSeleccionado : Destinacion("guerreroSeleccionado",
+    object GuerreroSeleccionado : Destinacion("GuerreroSeleccionado",
         listOf(ArgumentoDeNavegacion.Id)){
-        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/{${ArgumentoDeNavegacion.Id.clave}}"
+        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/$id"
     }
 
     object CocheSeleccionado : Destinacion("cocheSeleccionado",
         listOf(ArgumentoDeNavegacion.Id)){
-        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/${id}"
+        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/$id"
     }
 
     object PaisSeleccionado : Destinacion("paisSeleccionado",
         listOf(ArgumentoDeNavegacion.Id)){
-        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/${id}"
+        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/$id"
     }
 }
 

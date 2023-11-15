@@ -44,15 +44,16 @@ import coil.request.ImageRequest
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaGuerreroseleccionado(
-    idGuerreroSeleccionado : Int = 16,
+    idGuerreroSeleccionado : Int = 16
+    ,
     onPopUpClick: () -> Unit
 ) {
-    Log.d("oleg","El id que pasamos es -->> $idGuerreroSeleccionado")
+    //Log.d("oleg","El id que pasamos es -->> $idGuerreroSeleccionado")
     // NOTE : no sé si esta es la mejor forma
     val guerreroSeleccionado =
         Guerreros.datos[idGuerreroSeleccionado -1]
     // solución chapucera a un mini bug, coge el indice de la lista
-    Log.d("------", "val guerreroSeleccionado $guerreroSeleccionado")
+    //Log.d("------", "val guerreroSeleccionado $guerreroSeleccionado")
 
     Scaffold(
         topBar = {
@@ -65,7 +66,7 @@ fun PantallaGuerreroseleccionado(
                     Text("Menú principal")
                 },
                 navigationIcon = {
-                    IconButton(onClick = onPopUpClick) {
+                    IconButton(onClick = onPopUpClick  ) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
                             contentDescription = "Pantalla principal"
