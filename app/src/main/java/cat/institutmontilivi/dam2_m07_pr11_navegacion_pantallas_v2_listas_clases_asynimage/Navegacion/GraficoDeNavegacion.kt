@@ -10,6 +10,7 @@ import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaListaDeCoches
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaListaDeGuerreros
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaListaDePaises
+import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaPaisSeleccionado
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaPrincipal
 
 @Composable
@@ -129,7 +130,22 @@ fun GraficoDeNavegacion() {
             })
         }
 
+        // NOTE : composable para la pantalla del "Pais seleccionado"
+        composable(
+            route = Destinacion.PaisSeleccionado.rutaGenerica,
+            arguments =  Destinacion.PaisSeleccionado.navArgs
+        ) {
+            // FIXME ==> ESTA ES LA MIERDA QUE HACIA QUE PETASE, tb en el programa de XS
+            val id = it.arguments?.getString(ArgumentoDeNavegacion.Id.clave)?.toInt()
 
+            requireNotNull(id)
+
+            PantallaPaisSeleccionado(
+                idPaisSeleccionado = id,
+                onPopUpClick = {controladorDeNavegacion.navigate(
+                    Destinacion.Principal.rutaGenerica
+                )})
+        }
 
 
 
