@@ -1,6 +1,7 @@
 package cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,7 +34,9 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
 @Composable
-fun PantallaListaDeCoches(titulo : String = "Lista de coches") {
+fun PantallaListaDeCoches(
+    titulo : String = "Lista de coches lol",
+    onCocheSeleccionado : (Int) -> Unit) {
 
     LazyColumn(
         modifier = Modifier
@@ -45,15 +48,18 @@ fun PantallaListaDeCoches(titulo : String = "Lista de coches") {
             color = Color.White,
             fontWeight = FontWeight.ExtraBold) }
         items(Coches.datos) { coche ->
-            CocheItem(coche)
+            CocheItem(coche, onCocheSeleccionado)
         }
     }
 }
 
 @Composable
-fun CocheItem(coche: Coche) {
+fun CocheItem(
+    coche: Coche,
+    onCocheSeleccionado : (Int) -> Unit) {
     Row(
         modifier = Modifier
+            .clickable { onCocheSeleccionado(coche.id) }
             .fillMaxWidth()
             .padding(16.dp)
             .background(Color.LightGray),
@@ -78,7 +84,7 @@ fun CocheItem(coche: Coche) {
 
         // Muestra los atributos a la derecha
         Column {
-            Text(text = "Nombre: ${coche.nom}", fontWeight = FontWeight.Bold)
+            Text(text = "Nombre: ${coche.nombre}", fontWeight = FontWeight.Bold)
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {

@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.Datos.Coches
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.R
 import coil.compose.AsyncImage
@@ -74,6 +75,7 @@ fun PantallaCocheSeleccionado(
                 .background(Color.LightGray)
                 .clip(CutCornerShape(20.dp))
         ) {
+            // Muestra la foto en la mitad izquierda
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(cocheSeleccionado.foto)
@@ -83,16 +85,22 @@ fun PantallaCocheSeleccionado(
                 contentDescription = "Super Guerrer",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(64.dp)
+                    .fillMaxHeight()
+                    .weight(1f)
                     .clip(CircleShape)
             )
 
-            // Espacio entre la foto y los atributos
             Spacer(modifier = Modifier.width(16.dp))
 
-            // Muestra los atributos a la derecha
-            Column {
-                Text(text = "Nombre: ${cocheSeleccionado.nom}", fontWeight = FontWeight.Bold)
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .weight(1f)
+            ) {
+                Text(text = "${cocheSeleccionado.nombre}",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 40.sp)
+
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -104,6 +112,7 @@ fun PantallaCocheSeleccionado(
                             .background(color = cocheSeleccionado.color)
                     )
                 }
+                Spacer(modifier = Modifier.width(30.dp))
                 Text(text = "Año: ${cocheSeleccionado.data}")
                 Text(text = "País: ${cocheSeleccionado.pais}")
                 Text(text = "Motor: ${cocheSeleccionado.motor}")

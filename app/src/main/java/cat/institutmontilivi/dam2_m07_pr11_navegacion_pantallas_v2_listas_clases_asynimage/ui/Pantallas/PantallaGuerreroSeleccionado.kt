@@ -34,6 +34,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.Datos.Guerrero
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.Datos.Guerreros
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.R
@@ -106,7 +107,9 @@ fun PantallaGuerreroseleccionado(
                     .fillMaxHeight()
                     .weight(1f)
             ) {
-                Text(text = "Nombre: ${guerreroSeleccionado.nombre}", fontWeight = FontWeight.Bold)
+                Text(text = "${guerreroSeleccionado.nombre}",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 25.sp)
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically
@@ -119,7 +122,7 @@ fun PantallaGuerreroseleccionado(
                             .background(color = guerreroSeleccionado.color)
                     )
                 }
-
+                Spacer(modifier = Modifier.width(30.dp))
                 Text(text = "Edad: ${guerreroSeleccionado.edad} años")
                 Text(text = "Fuerza: ${guerreroSeleccionado.fuerza}")
                 Text(text = "Resistencia: ${guerreroSeleccionado.resistencia}")

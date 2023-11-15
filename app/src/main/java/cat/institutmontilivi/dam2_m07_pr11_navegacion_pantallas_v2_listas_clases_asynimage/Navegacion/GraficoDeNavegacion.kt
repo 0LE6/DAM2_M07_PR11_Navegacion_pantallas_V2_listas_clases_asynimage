@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaCocheSeleccionado
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaGuerreroseleccionado
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaListaDeCoches
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas.PantallaListaDeGuerreros
@@ -85,8 +86,34 @@ fun GraficoDeNavegacion() {
 
             requireNotNull(titulo)
 
-            PantallaListaDeCoches(titulo)
+            PantallaListaDeCoches(titulo,
+                onCocheSeleccionado = { id : Int ->
+                    controladorDeNavegacion.navigate(
+                        Destinacion.CocheSeleccionado.creaRutaDeNavegacion(id)
+                    )
+                })
         }
+
+        // NOTE : composable para la pantalla del "Coche seleccionado"
+        composable(
+            route = Destinacion.CocheSeleccionado.rutaGenerica,
+            arguments =  Destinacion.CocheSeleccionado.navArgs
+        ) {
+            // FIXME ==> ESTA ES LA MIERDA QUE HACIA QUE PETASE, tb en el programa de XS
+            val id = it.arguments?.getString(ArgumentoDeNavegacion.Id.clave)?.toInt()
+
+            requireNotNull(id)
+
+            PantallaCocheSeleccionado(
+                idCocheSeleccionado = id,
+                onPopUpClick = {controladorDeNavegacion.navigate(
+                    Destinacion.Principal.rutaGenerica
+                )})
+        }
+
+
+
+
 
         // NOTE : composable para la pantalla de la "Lista de Paises"
         composable(

@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 data class Coche(
     val id : Int,
-    val nom : String,
+    val nombre : String,
     val foto : String, // dirección de la imagen
     val color : Color,
     val data : Int,
