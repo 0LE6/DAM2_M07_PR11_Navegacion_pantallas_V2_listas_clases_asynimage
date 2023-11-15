@@ -31,15 +31,29 @@ sealed class Destinacion (
         listOf(ArgumentoDeNavegacion.Titulo)) {
         fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
     }
+    object GuerreroSeleccionado : Destinacion("guerreroSeleccionado",
+        listOf(ArgumentoDeNavegacion.Id)){
+        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/{${ArgumentoDeNavegacion.Id.clave}}"
+    }
+
+    object CocheSeleccionado : Destinacion("cocheSeleccionado",
+        listOf(ArgumentoDeNavegacion.Id)){
+        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/${id}"
+    }
+
+    object PaisSeleccionado : Destinacion("paisSeleccionado",
+        listOf(ArgumentoDeNavegacion.Id)){
+        fun creaRutaDeNavegacion(id : Int) = "$rutaBase/${id}"
+    }
 }
 
 enum class ArgumentoDeNavegacion (
     val clave : String,
-    val tipos : NavType<*>
+    val tipo : NavType<*>
 ) {
-    Titulo("Titulo", NavType.StringType);
-
+    Titulo("Titulo", tipo = NavType.StringType),
+    Id("Id", tipo = NavType.IntType);
     fun toNavArgument() : NamedNavArgument {
-        return navArgument(clave) { tipos }
+        return navArgument(clave) { tipo }
     }
 }

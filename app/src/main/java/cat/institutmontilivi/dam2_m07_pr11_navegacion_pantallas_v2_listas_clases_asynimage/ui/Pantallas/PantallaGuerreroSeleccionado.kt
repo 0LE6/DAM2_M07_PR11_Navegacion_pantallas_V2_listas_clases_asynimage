@@ -1,5 +1,6 @@
 package cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -43,12 +44,15 @@ import coil.request.ImageRequest
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaGuerreroseleccionado(
-    onPopUpClick: () -> Unit,
-    idGuerreroSeleccionado: Int = 0,
+    idGuerreroSeleccionado : Int = 16,
+    onPopUpClick: () -> Unit
 ) {
+    Log.d("oleg","El id que pasamos es -->> $idGuerreroSeleccionado")
     // NOTE : no sé si esta es la mejor forma
     val guerreroSeleccionado =
-        Guerreros.datos.find { it.id == idGuerreroSeleccionado }
+        Guerreros.datos[idGuerreroSeleccionado -1]
+    // solución chapucera a un mini bug, coge el indice de la lista
+    Log.d("------", "val guerreroSeleccionado $guerreroSeleccionado")
 
     Scaffold(
         topBar = {
@@ -71,58 +75,55 @@ fun PantallaGuerreroseleccionado(
             )
         }
     ) {
-        guerreroSeleccionado?.let { guerrero ->
+        Column(
+            modifier = Modifier
+                .padding(it)
+                .fillMaxWidth()
+                .padding(16.dp)
+                .background(Color.LightGray)
+                .clip(CutCornerShape(20.dp))
+        ) {
+            // Muestra la foto en la mitad izquierda
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(guerreroSeleccionado.foto)
+                    .crossfade(true)
+                    .build(),
+                placeholder = painterResource(R.drawable.ic_launcher_foreground),
+                contentDescription = "Super Guerrer",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .weight(1f)
+                    .clip(CircleShape)
+            )
+
+            Spacer(modifier = Modifier.width(16.dp))
+
             Column(
                 modifier = Modifier
-                    .padding(it)
-                    .fillMaxWidth()
-                    .padding(16.dp)
-                    .background(Color.LightGray)
-                    .clip(CutCornerShape(20.dp))
+                    .fillMaxHeight()
+                    .weight(1f)
             ) {
-                // Muestra la foto en la mitad izquierda
-                AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(guerrero.foto)
-                        .crossfade(true)
-                        .build(),
-                    placeholder = painterResource(R.drawable.ic_launcher_foreground),
-                    contentDescription = "Super Guerrer",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .fillMaxHeight() // Ocupa toda la altura de la columna
-                        .weight(1f) // Ocupa la mitad del ancho
-                        .clip(CircleShape)
-                )
+                Text(text = "Nombre: ${guerreroSeleccionado.nombre}", fontWeight = FontWeight.Bold)
 
-                Spacer(modifier = Modifier.width(16.dp))
-
-                // Datos de texto en la mitad derecha
-                Column(
-                    modifier = Modifier
-                        .fillMaxHeight() // Ocupa toda la altura de la columna
-                        .weight(1f) // Ocupa la mitad del ancho
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "Nombre: ${guerrero.nombre}", fontWeight = FontWeight.Bold)
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text("Color: ")
-                        // Cuadrado de color
-                        Box(
-                            modifier = Modifier
-                                .size(15.dp)
-                                .background(color = guerrero.color)
-                        )
-                    }
-
-                    Text(text = "Edad: ${guerrero.edad} años")
-                    Text(text = "Fuerza: ${guerrero.fuerza}")
-                    Text(text = "Resistencia: ${guerrero.resistencia}")
-                    Text(text = "Ataque: ${guerrero.ataque}")
-                    Text(text = "Defensa: ${guerrero.defensa}")
+                    Text("Color: ")
+                    // Cuadrado de color
+                    Box(
+                        modifier = Modifier
+                            .size(15.dp)
+                            .background(color = guerreroSeleccionado.color)
+                    )
                 }
+
+                Text(text = "Edad: ${guerreroSeleccionado.edad} años")
+                Text(text = "Fuerza: ${guerreroSeleccionado.fuerza}")
+                Text(text = "Resistencia: ${guerreroSeleccionado.resistencia}")
+                Text(text = "Ataque: ${guerreroSeleccionado.ataque}")
+                Text(text = "Defensa: ${guerreroSeleccionado.defensa}")
             }
         }
     }

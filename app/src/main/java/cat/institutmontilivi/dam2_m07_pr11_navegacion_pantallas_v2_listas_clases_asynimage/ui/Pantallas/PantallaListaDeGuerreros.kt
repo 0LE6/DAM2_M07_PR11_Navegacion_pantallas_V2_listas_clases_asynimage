@@ -32,10 +32,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import android.util.Log
 
 @Composable
 fun PantallaListaDeGuerreros(
-    titulo : String = "Titulo",
+    titulo : String = "Lista de Guerreros?????",
     onGuerreroSeleccionado : (Int) -> Unit
 ) {
 
@@ -57,7 +58,9 @@ fun PantallaListaDeGuerreros(
 
 @Composable
 fun GuerreroItem(guerrero: Guerrero,
-                 onGuerreroSeleccionado : (Int) -> Unit) {
+                 onGuerreroSeleccionado : (Int) -> Unit
+) {
+    Log.d("el id desde GuerreroItemm","$guerrero.id")
     Row(
         modifier = Modifier
             .clickable { onGuerreroSeleccionado(guerrero.id) }
@@ -85,7 +88,8 @@ fun GuerreroItem(guerrero: Guerrero,
         Spacer(modifier = Modifier.width(16.dp))
 
         Column {
-            Text(text = "Nombre: ${guerrero.nombre}", fontWeight = FontWeight.Bold)
+            Text(text = "Nombre: ${guerrero.nombre}",
+                fontWeight = FontWeight.Bold)
 
             Row(
                 verticalAlignment = Alignment.CenterVertically

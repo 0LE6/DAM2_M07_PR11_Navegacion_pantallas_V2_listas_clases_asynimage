@@ -19,8 +19,9 @@ class Guerreros {
 
         public val datos =
             listOf(
-                Guerrero(1, "Espasa misteriosa", "https://loremflickr.com/300/300/warrior?lock=27", Color.Blue, 23, 56, 45, 69, 89),
+                Guerrero(1, "Espada misteriosa", "https://loremflickr.com/300/300/warrior?lock=27", Color.Blue, 23, 56, 45, 69, 89),
                 Guerrero(2, "Espada letal", "https://loremflickr.com/300/300/warrior?lock=28", Color.Red, 28, 60, 42, 72, 85),
+
                 Guerrero(3, "Guerrero implacable", "https://loremflickr.com/300/300/warrior?lock=29", Color.Green, 30, 65, 40, 70, 90),
                 Guerrero(4, "Héroe legendario", "https://loremflickr.com/300/300/warrior?lock=30", Color.Black, 25, 55, 50, 75, 88),
                 Guerrero(5, "Místico guerrero", "https://loremflickr.com/300/300/warrior?lock=31", Color.Yellow, 27, 58, 48, 68, 92),

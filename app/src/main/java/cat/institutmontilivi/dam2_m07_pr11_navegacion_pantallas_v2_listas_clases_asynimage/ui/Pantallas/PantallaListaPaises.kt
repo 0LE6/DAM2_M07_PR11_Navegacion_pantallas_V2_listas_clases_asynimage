@@ -34,7 +34,7 @@ import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases
 
 
 @Composable
-fun PantallaListaDePaises(titulo : String = "Titulo") {
+fun PantallaListaDePaises(titulo : String = "Lista de países") {
 
     LazyColumn(
         modifier = Modifier

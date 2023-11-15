@@ -27,9 +27,11 @@ import androidx.compose.ui.unit.sp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaPrincipal(
+
     onListaDeGuerreros : (String) -> Unit,
     onListaDeCoches : (String) -> Unit,
     onListaDePaises : (String) -> Unit
+
 ) {
     Scaffold (
         topBar = {
@@ -68,8 +70,7 @@ fun PantallaPrincipal(
                 Button(
                     modifier = Modifier
                         .align(Alignment.Center),
-                    onClick = {
-                        onListaDeCoches("Lista de coches")}
+                    onClick = { onListaDeCoches("Lista de coches") }
 
                 ) {
                     Text(text = "Lista de coches", fontSize = 30.sp)
@@ -83,7 +84,7 @@ fun PantallaPrincipal(
             ) {
                 Button(modifier = Modifier
                     .align(Alignment.Center),
-                    onClick = { onListaDeGuerreros("Lista de Guerreros") }
+                    onClick = { onListaDeGuerreros("Lista de guerreros") }
                 ) {
                     Text(text = "Lista de guerreros", fontSize = 30.sp)
                 }
@@ -96,7 +97,7 @@ fun PantallaPrincipal(
             ) {
                 Button(modifier = Modifier
                     .align(Alignment.Center),
-                    onClick = { onListaDePaises("Lista de Países") }
+                    onClick = { onListaDePaises("Lista de países") }
                 ) {
                     Text(text = "Lista de países", fontSize = 30.sp)
                 }

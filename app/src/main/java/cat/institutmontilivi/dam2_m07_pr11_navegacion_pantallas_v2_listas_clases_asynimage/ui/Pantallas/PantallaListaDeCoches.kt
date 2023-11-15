@@ -33,7 +33,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
 @Composable
-fun PantallaListaDeCoches(titulo : String = "Titulo") {
+fun PantallaListaDeCoches(titulo : String = "Lista de coches") {
 
     LazyColumn(
         modifier = Modifier
