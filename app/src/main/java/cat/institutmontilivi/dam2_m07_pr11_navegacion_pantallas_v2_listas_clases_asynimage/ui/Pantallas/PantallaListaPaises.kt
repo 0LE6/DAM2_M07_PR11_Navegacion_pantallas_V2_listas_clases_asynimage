@@ -1,5 +1,6 @@
 package cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -27,6 +28,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.Datos.Pais
 
@@ -37,8 +39,12 @@ fun PantallaListaDePaises(titulo : String = "Titulo") {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color.DarkGray)
     ) {
-        item { Text (text = titulo) }
+        item { Text (
+            text = titulo,
+            color = Color.White,
+            fontWeight = FontWeight.ExtraBold) }
         items(Paises.datos) { pais ->
             PaisItem(pais)
         }
@@ -53,7 +59,6 @@ fun PaisItem(pais: Pais) {
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Muestra la foto a la izquierda
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(pais.bandera)
@@ -67,10 +72,8 @@ fun PaisItem(pais: Pais) {
                 .clip(CircleShape)
         )
 
-        // Espacio entre la foto y los atributos
         Spacer(modifier = Modifier.width(16.dp))
 
-        // Muestra los atributos a la derecha
         Column {
             Text(text = "Nombre: ${pais.nombre}", fontWeight = FontWeight.Bold)
             Text(text = "Continente: ${pais.continente}")
