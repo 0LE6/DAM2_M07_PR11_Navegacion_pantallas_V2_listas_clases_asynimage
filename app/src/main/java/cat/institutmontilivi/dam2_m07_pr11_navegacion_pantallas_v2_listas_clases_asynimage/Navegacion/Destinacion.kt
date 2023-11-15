@@ -7,7 +7,7 @@ import androidx.navigation.navArgument
 sealed class Destinacion (
 
     val rutaBase : String,
-    val argumentosDeNavegacion : List<ArgumentoDeNavegacio> = emptyList()
+    val argumentosDeNavegacion : List<ArgumentoDeNavegacion> = emptyList()
 ) {
     val rutaGenerica = run {
         val claves = argumentosDeNavegacion.map { "{${it.clave}}" }
@@ -20,20 +20,20 @@ sealed class Destinacion (
 
     object Principal : Destinacion("Principal")
     object ListaDeGuerreros : Destinacion("ListaDeGuerreros",
-        listOf(ArgumentoDeNavegacio.Titulo)) {
+        listOf(ArgumentoDeNavegacion.Titulo)) {
         fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
     }
     object ListaDeCoches : Destinacion("ListaDeCoches",
-        listOf(ArgumentoDeNavegacio.Titulo)) {
+        listOf(ArgumentoDeNavegacion.Titulo)) {
         fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
     }
     object ListaDePaises : Destinacion("ListaDePaises",
-        listOf(ArgumentoDeNavegacio.Titulo)) {
+        listOf(ArgumentoDeNavegacion.Titulo)) {
         fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
     }
 }
 
-enum class ArgumentoDeNavegacio (
+enum class ArgumentoDeNavegacion (
     val clave : String,
     val tipos : NavType<*>
 ) {

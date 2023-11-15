@@ -33,5 +33,41 @@ fun GraficoDeNavegacion() {
                         Destinacion.ListaDePaises.creaRutaEspecifica(titulo)) }
             )
         }
+
+        // NOTE : composable para la pantalla de la "Lista de Guerreros"
+        composable(
+            route = Destinacion.ListaDeGuerreros.rutaGenerica,
+            arguments = Destinacion.ListaDeGuerreros.navArgs
+        ) {
+            val titulo = it.arguments?.getString(ArgumentoDeNavegacion.Titulo.clave)
+
+            requireNotNull(titulo)
+
+            PantallaListaDeGuerreros(titulo)
+        }
+
+        // NOTE : composable para la pantalla de la "Lista de Coches"
+        composable(
+            route = Destinacion.ListaDeCoches.rutaGenerica,
+            arguments = Destinacion.ListaDeCoches.navArgs
+        ) {
+            val titulo = it.arguments?.getString(ArgumentoDeNavegacion.Titulo.clave)
+
+            requireNotNull(titulo)
+
+            PantallaListaDeCoches(titulo)
+        }
+
+        // NOTE : composable para la pantalla de la "Lista de Paises"
+        composable(
+            route = Destinacion.ListaDePaises.rutaGenerica,
+            arguments = Destinacion.ListaDePaises.navArgs
+        ) {
+            val titulo = it.arguments?.getString(ArgumentoDeNavegacion.Titulo.clave)
+
+            requireNotNull(titulo)
+
+            PantallaListaDePaises(titulo)
+        }
     }
 }
