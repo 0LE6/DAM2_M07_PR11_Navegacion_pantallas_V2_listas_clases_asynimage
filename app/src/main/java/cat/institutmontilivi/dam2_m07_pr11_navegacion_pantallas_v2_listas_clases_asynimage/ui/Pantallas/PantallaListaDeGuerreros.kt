@@ -1,6 +1,7 @@
 package cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,7 +34,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 
 @Composable
-fun PantallaListaDeGuerreros(titulo : String = "Titulo") {
+fun PantallaListaDeGuerreros(
+    titulo : String = "Titulo",
+    onGuerreroSeleccionado : (Int) -> Unit
+) {
 
     LazyColumn(
         modifier = Modifier
@@ -46,21 +50,23 @@ fun PantallaListaDeGuerreros(titulo : String = "Titulo") {
             color = Color.White,
             fontWeight = FontWeight.ExtraBold) }
         items(Guerreros.datos) { guerrero ->
-            GuerreroItem(guerrero)
+            GuerreroItem(guerrero, onGuerreroSeleccionado)
         }
     }
 }
 
 @Composable
-fun GuerreroItem(guerrero: Guerrero) {
+fun GuerreroItem(guerrero: Guerrero,
+                 onGuerreroSeleccionado : (Int) -> Unit) {
     Row(
         modifier = Modifier
-
+            .clickable { onGuerreroSeleccionado(guerrero.id) }
             .fillMaxWidth()
             .padding(16.dp)
             .background(Color.LightGray)
             .clip(CutCornerShape(20.dp)),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+
     ) {
         // Muestra la foto a la izquierda
         AsyncImage(
