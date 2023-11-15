@@ -1,8 +1,13 @@
 package cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -21,6 +26,8 @@ import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.font.FontWeight
 import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.Datos.Pais
 
 
@@ -40,17 +47,39 @@ fun PantallaListaDePaises(titulo : String = "Titulo") {
 
 @Composable
 fun PaisItem(pais: Pais) {
-    AsyncImage(
-        model = ImageRequest.Builder(LocalContext.current)
-            .data(pais.bandera)
-            .crossfade(true)
-            .build(),
-        placeholder = painterResource(R.drawable.ic_launcher_foreground),
-        contentDescription = "País",
-        contentScale = ContentScale.Crop,
-        modifier = Modifier.clip(CircleShape)
-    )
-    Spacer(modifier = Modifier.padding(8.dp))
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // Muestra la foto a la izquierda
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(pais.bandera)
+                .crossfade(true)
+                .build(),
+            placeholder = painterResource(R.drawable.ic_launcher_foreground),
+            contentDescription = "País",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(64.dp)
+                .clip(CircleShape)
+        )
 
-    val valor = pais.id //obtener la id o el indice del campo para mandarlo por parametro
+        // Espacio entre la foto y los atributos
+        Spacer(modifier = Modifier.width(16.dp))
+
+        // Muestra los atributos a la derecha
+        Column {
+            Text(text = "Nombre: ${pais.nombre}", fontWeight = FontWeight.Bold)
+            Text(text = "Continente: ${pais.continente}")
+            Text(text = "Capital: ${pais.capital}")
+            Text(text = "Superficie: ${pais.superficie} km²")
+            Text(text = "Habitantes: ${pais.habitantes}")
+        }
+    }
 }
+
+
+//val valor = pais.id //obtener la id o el indice del campo para mandarlo por parametro
