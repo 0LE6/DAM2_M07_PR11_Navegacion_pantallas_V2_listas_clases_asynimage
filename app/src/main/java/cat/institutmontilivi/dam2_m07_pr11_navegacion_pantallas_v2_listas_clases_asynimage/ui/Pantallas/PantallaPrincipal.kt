@@ -52,5 +52,18 @@ fun PantallaPrincipal(
                 Text (text = "Lista de guerreros", fontSize = 40.sp)
             }
         }
+
+        Box (
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1F)
+        ) {
+            Button(modifier = Modifier
+                .align(Alignment.Center),
+                onClick = { onListaDePaises("Lista de Países") }
+            ) {
+                Text (text = "Lista de países", fontSize = 40.sp)
+            }
+        }
     }
 }
