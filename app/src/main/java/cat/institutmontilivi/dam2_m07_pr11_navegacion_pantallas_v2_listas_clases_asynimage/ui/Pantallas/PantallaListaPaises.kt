@@ -56,7 +56,8 @@ fun PaisItem(pais: Pais) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .background(Color.LightGray),
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
