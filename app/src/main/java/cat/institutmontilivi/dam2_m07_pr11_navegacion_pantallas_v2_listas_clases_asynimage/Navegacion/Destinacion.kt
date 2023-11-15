@@ -17,13 +17,27 @@ sealed class Destinacion (
     }
 
     val navArgs = argumentosDeNavegacion.map { it.toNavArgument() }
+
+    object Principal : Destinacion("Principal")
+    object ListaDeGuerreros : Destinacion("ListaDeGuerreros",
+        listOf(ArgumentoDeNavegacio.Titulo)) {
+        fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
+    }
+    object ListaDeCoches : Destinacion("ListaDeCoches",
+        listOf(ArgumentoDeNavegacio.Titulo)) {
+        fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
+    }
+    object ListaDePaises : Destinacion("ListaDePaises",
+        listOf(ArgumentoDeNavegacio.Titulo)) {
+        fun creaRutaEspecifica(titulo : String) = "$rutaBase/$titulo"
+    }
 }
 
 enum class ArgumentoDeNavegacio (
     val clave : String,
     val tipos : NavType<*>
 ) {
-    Titulo("Titulo", NavType.StringType)
+    Titulo("Titulo", NavType.StringType);
 
     fun toNavArgument() : NamedNavArgument {
         return navArgument(clave) { tipos }
