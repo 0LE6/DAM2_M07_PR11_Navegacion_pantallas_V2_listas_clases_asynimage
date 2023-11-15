@@ -46,7 +46,7 @@ fun PaisItem(pais: Pais) {
             .crossfade(true)
             .build(),
         placeholder = painterResource(R.drawable.ic_launcher_foreground),
-        contentDescription = "Super Guerrer",
+        contentDescription = "País",
         contentScale = ContentScale.Crop,
         modifier = Modifier.clip(CircleShape)
     )
