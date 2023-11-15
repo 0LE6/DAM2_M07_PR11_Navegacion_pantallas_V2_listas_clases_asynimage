@@ -135,7 +135,7 @@ fun GraficoDeNavegacion() {
             route = Destinacion.PaisSeleccionado.rutaGenerica,
             arguments =  Destinacion.PaisSeleccionado.navArgs
         ) {
-            // FIXME ==> ESTA ES LA MIERDA QUE HACIA QUE PETASE, tb en el programa de XS
+            // FIXME ==> ESTA ES LA MIERDA QUE HACIA QUE PETASE, tb en el programa de XS (el cast)
             val id = it.arguments?.getString(ArgumentoDeNavegacion.Id.clave)?.toInt()
 
             requireNotNull(id)
