@@ -68,7 +68,7 @@ fun GraficoDeNavegacion() {
         ) {
             // FIXME ==> ESTA ES LA MIERDA QUE HACIA QUE PETASE, tb en el programa de XS
             val id = it.arguments?.getString(ArgumentoDeNavegacion.Id.clave)?.toInt()
-            Log.d("GuerreroSeleccionado", "Valor de id: $id")
+            //Log.d("GuerreroSeleccionado", "Valor de id: $id")
             requireNotNull(id)
 
             PantallaGuerreroseleccionado(

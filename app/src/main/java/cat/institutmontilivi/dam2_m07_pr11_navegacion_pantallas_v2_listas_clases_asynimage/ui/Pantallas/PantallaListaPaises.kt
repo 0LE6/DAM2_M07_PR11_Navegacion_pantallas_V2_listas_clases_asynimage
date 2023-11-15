@@ -83,10 +83,12 @@ fun PaisItem(
 
         Column {
             Text(text = pais.nombre, fontWeight = FontWeight.Bold)
+            /*
             Text(text = "Continente: ${pais.continente}")
             Text(text = "Capital: ${pais.capital}")
             Text(text = "Superficie: ${pais.superficie} km²")
             Text(text = "Habitantes: ${pais.habitantes}")
+            */
         }
     }
 }

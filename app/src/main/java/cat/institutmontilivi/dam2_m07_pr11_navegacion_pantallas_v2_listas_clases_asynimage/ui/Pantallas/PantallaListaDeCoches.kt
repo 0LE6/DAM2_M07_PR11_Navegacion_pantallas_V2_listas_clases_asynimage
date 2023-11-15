@@ -80,11 +80,12 @@ fun CocheItem(
         )
 
         // Espacio entre la foto y los atributos
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(10.dp))
 
         // Muestra los atributos a la derecha
         Column {
             Text(text = coche.nombre, fontWeight = FontWeight.Bold)
+            /*
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -101,6 +102,7 @@ fun CocheItem(
             Text(text = "Motor: ${coche.motor}")
             Text(text = "Consumo: ${coche.consumo} L/100km")
             Text(text = "Precio: ${coche.precio} €")
+            */
         }
     }
 }
