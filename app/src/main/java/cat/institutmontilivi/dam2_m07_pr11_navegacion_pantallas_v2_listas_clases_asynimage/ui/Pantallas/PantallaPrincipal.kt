@@ -72,7 +72,7 @@ fun PantallaPrincipal(
                         onListaDeCoches("Lista de coches")}
 
                 ) {
-                    Text(text = "Lista de coches", fontSize = 40.sp)
+                    Text(text = "Lista de coches", fontSize = 30.sp)
                 }
             }
 
@@ -85,7 +85,7 @@ fun PantallaPrincipal(
                     .align(Alignment.Center),
                     onClick = { onListaDeGuerreros("Lista de Guerreros") }
                 ) {
-                    Text(text = "Lista de guerreros", fontSize = 40.sp)
+                    Text(text = "Lista de guerreros", fontSize = 30.sp)
                 }
             }
 
@@ -98,7 +98,7 @@ fun PantallaPrincipal(
                     .align(Alignment.Center),
                     onClick = { onListaDePaises("Lista de Países") }
                 ) {
-                    Text(text = "Lista de países", fontSize = 40.sp)
+                    Text(text = "Lista de países", fontSize = 30.sp)
                 }
             }
         }
