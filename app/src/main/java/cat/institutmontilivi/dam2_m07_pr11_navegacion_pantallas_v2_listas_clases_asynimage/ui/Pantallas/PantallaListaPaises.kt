@@ -1,6 +1,7 @@
 package cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases_asynimage.ui.Pantallas
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -34,7 +35,9 @@ import cat.institutmontilivi.dam2_m07_pr11_navegacion_pantallas_v2_listas_clases
 
 
 @Composable
-fun PantallaListaDePaises(titulo : String = "Lista de países") {
+fun PantallaListaDePaises(
+    titulo : String = "Lista de países",
+    onPaisSeleccionado : (Int) -> Unit) {
 
     LazyColumn(
         modifier = Modifier
@@ -46,15 +49,18 @@ fun PantallaListaDePaises(titulo : String = "Lista de países") {
             color = Color.White,
             fontWeight = FontWeight.ExtraBold) }
         items(Paises.datos) { pais ->
-            PaisItem(pais)
+            PaisItem(pais, onPaisSeleccionado)
         }
     }
 }
 
 @Composable
-fun PaisItem(pais: Pais) {
+fun PaisItem(
+    pais: Pais,
+    onPaisSeleccionado : (Int) -> Unit) {
     Row(
         modifier = Modifier
+            .clickable { onPaisSeleccionado(pais.id) }
             .fillMaxWidth()
             .padding(16.dp)
             .background(Color.LightGray),

@@ -112,9 +112,6 @@ fun GraficoDeNavegacion() {
         }
 
 
-
-
-
         // NOTE : composable para la pantalla de la "Lista de Paises"
         composable(
             route = Destinacion.ListaDePaises.rutaGenerica,
@@ -124,7 +121,12 @@ fun GraficoDeNavegacion() {
 
             requireNotNull(titulo)
 
-            PantallaListaDePaises(titulo)
+            PantallaListaDePaises(titulo,
+                onPaisSeleccionado = { id : Int ->
+                controladorDeNavegacion.navigate(
+                    Destinacion.CocheSeleccionado.creaRutaDeNavegacion(id)
+                )
+            })
         }
 
 
