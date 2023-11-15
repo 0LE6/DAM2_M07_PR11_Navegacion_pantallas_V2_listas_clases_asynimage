@@ -88,7 +88,7 @@ fun GuerreroItem(guerrero: Guerrero,
         Spacer(modifier = Modifier.width(16.dp))
 
         Column {
-            Text(text = "Nombre: ${guerrero.nombre}",
+            Text(text = guerrero.nombre,
                 fontWeight = FontWeight.Bold)
 
             Row(

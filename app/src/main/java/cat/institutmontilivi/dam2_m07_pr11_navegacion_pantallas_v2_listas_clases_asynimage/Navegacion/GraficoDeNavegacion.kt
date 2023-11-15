@@ -125,7 +125,7 @@ fun GraficoDeNavegacion() {
             PantallaListaDePaises(titulo,
                 onPaisSeleccionado = { id : Int ->
                 controladorDeNavegacion.navigate(
-                    Destinacion.CocheSeleccionado.creaRutaDeNavegacion(id)
+                    Destinacion.PaisSeleccionado.creaRutaDeNavegacion(id)
                 )
             })
         }

@@ -26,7 +26,7 @@ class Coches {
             Coche(5, "Audi R8", "https://loremflickr.com/300/300/audi", Color.Gray, 2022, "Alemania", "V10", 13, 160000),
             Coche(6, "Mercedes-AMG GT", "https://loremflickr.com/300/300/mercedes", Color.Black, 2022, "Alemania", "V8", 11, 140000),
             Coche(7, "BMW M4", "https://loremflickr.com/300/300/bmw", Color.Blue, 2022, "Alemania", "Inline-6", 12, 120000),
-            Coche(8, "Jaguar F-Type", "jhttps://loremflickr.com/300/300/jaguarftype", Color.Red, 2022, "Reino Unido", "V6", 11, 110000),
+            Coche(8, "Jaguar F-Type", "https://loremflickr.com/300/300/jaguarftype", Color.Red, 2022, "Reino Unido", "V6", 11, 110000),
             Coche(9, "Aston Martin Vantage","https://loremflickr.com/300/300/aston_martin", Color.Blue, 2022, "Reino Unido", "V8", 12, 180000),
             Coche(10, "Chevrolet Corvette", "https://loremflickr.com/300/300/corvette", Color.Red, 2022, "Estados Unidos", "V8", 13, 100000),
             Coche(11, "Ford Mustang", "https://loremflickr.com/300/300/ford_mustang", Color.Blue, 2022, "Estados Unidos", "V8", 14, 90000),

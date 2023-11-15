@@ -82,7 +82,7 @@ fun PaisItem(
         Spacer(modifier = Modifier.width(16.dp))
 
         Column {
-            Text(text = "Nombre: ${pais.nombre}", fontWeight = FontWeight.Bold)
+            Text(text = pais.nombre, fontWeight = FontWeight.Bold)
             Text(text = "Continente: ${pais.continente}")
             Text(text = "Capital: ${pais.capital}")
             Text(text = "Superficie: ${pais.superficie} km²")

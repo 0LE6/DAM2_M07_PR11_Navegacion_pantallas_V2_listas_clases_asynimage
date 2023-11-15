@@ -84,7 +84,7 @@ fun CocheItem(
 
         // Muestra los atributos a la derecha
         Column {
-            Text(text = "Nombre: ${coche.nombre}", fontWeight = FontWeight.Bold)
+            Text(text = coche.nombre, fontWeight = FontWeight.Bold)
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
