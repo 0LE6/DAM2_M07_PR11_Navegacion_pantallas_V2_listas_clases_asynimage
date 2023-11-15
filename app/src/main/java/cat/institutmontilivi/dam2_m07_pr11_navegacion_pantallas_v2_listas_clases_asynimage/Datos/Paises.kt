@@ -13,7 +13,7 @@ data class Pais(
 class Paises {
 
     companion object {
-        private val datos = listOf(
+        val datos = listOf(
             Pais(1, "Nepal", "url_de_la_bandera", "Asia", "Katmandu", 147516, 30000000),
             Pais(2, "Estados Unidos", "url_de_la_bandera", "América del Norte", "Washington D.C.", 9833517, 331002651),
             Pais(3, "Brasil", "url_de_la_bandera", "América del Sur", "Brasilia", 8515767, 212559417),
