@@ -15,12 +15,17 @@ sealed class Destinacion (
             .plus(claves)
             .joinToString("/")
     }
+
+    val navArgs = argumentosDeNavegacion.map { it.toNavArgument() }
 }
 
 enum class ArgumentoDeNavegacio (
     val clave : String,
     val tipos : NavType<*>
 ) {
+    Titulo("Titulo", NavType.StringType)
 
-
+    fun toNavArgument() : NamedNavArgument {
+        return navArgument(clave) { tipos }
+    }
 }
