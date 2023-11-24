@@ -90,25 +90,6 @@ fun GuerreroItem(guerrero: Guerrero,
         Column {
             Text(text = guerrero.nombre,
                 fontWeight = FontWeight.Bold)
-            /*
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text("Color: ")
-                // Cuadrado de color
-                Box(
-                    modifier = Modifier
-                        .size(15.dp)
-                        .background(color = guerrero.color)
-                )
-            }
-
-            Text(text = "Edad: ${guerrero.edad} años")
-            Text(text = "Fuerza: ${guerrero.fuerza}")
-            Text(text = "Resistencia: ${guerrero.resistencia}")
-            Text(text = "Ataque: ${guerrero.ataque}")
-            Text(text = "Defensa: ${guerrero.defensa}")
-            */
         }
     }
 }
